@@ -1,0 +1,37 @@
+01900513
+FFE00593
+00B5058B
+00A42023
+FEA52663
+FEA52663
+FEA52663
+FEA52663
+FEA52663
+FEA52663
+FEA52663
+FEA52663
+FEA52663
+FEA52663
+FEA52663
+00100513 // addi x10, x0, 1        ; x10 = 1
+00200593 // addi x11, x0, 2        ; x11 = 2
+00B50633 // add x12, x10, x11      ; x12 = x10 + x11 (3)
+00258613 // slli x12, x11, 2       ; x12 = x11 << 2 (8)
+00C62723 // sw x12, 0(x12)         ; store x12 to memory at addr in x12 (store to DMEM)
+0006A283 // lw x5, 0(x13)         ; load into x5 (dependent on previous store if addr matches)
+00530513 // addi x10, x6, 5        ; arithmetic to create hazards
+00000013 // nop (addi x0,x0,0)
+00000013 // nop
+00000013 // nop
+00008067 // ret/jalr x0, x1, 0       ; return (end)
+FEA52663
+00100513
+00200593
+00B50633
+0006A283
+00000013
+00000013
+06400313
+01900293
+00532023
+00000013
